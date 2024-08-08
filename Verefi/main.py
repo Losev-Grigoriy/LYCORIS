@@ -32,10 +32,9 @@ bot.load_extension("cogs.adminveref")
 bot.load_extension("cogs.staff")
 
 
-
-
 @bot.event
 async def on_ready():
     print(f'Bot is ready. Logged in as {bot.user.name}')
+
 
 bot.run(TOKEN)

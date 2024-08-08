@@ -3,9 +3,9 @@ from disnake.ext import commands
 from disnake import ButtonStyle, TextInputStyle
 
 
-CHANNEL_ID = 1254813477923717323
+CHANNEL_ID = 1271171550065856552
 
-SUBMISSIONS_CHANNEL_ID = 1136549340228354118
+SUBMISSIONS_CHANNEL_ID = 1271171550065856552
 
 class Moderatorl(disnake.ui.Modal):
     def __init__(self, *args, **kwargs):
@@ -676,11 +676,36 @@ class CustomButtons(commands.Cog):
     async def on_ready(self):
         channel = self.bot.get_channel(CHANNEL_ID)
         if channel:
+            await self.clear_channel(channel)
             embed = disnake.Embed(
-                title="Нажмите на кнопку, чтобы отправить сообщение:"
+                title= f" <:1_a4:1089952877897846955> Наш стафф.",
+                description= (
+                    f" <a:softheartbk:1122098922878410752> **<@450603556941201409>** — создатель проекта.\n"
+                    f" <a:softheartbk:1122098922878410752> **<@1193226850940502026>** — руки и глаза овнера.\n"
+                    f" <a:softheartbk:1122098922878410752> **<@1089521532759449640>** — главное, но не высшее звено ответственности и полномочий.\n"
+                    f" <a:softheartbk:1122098922878410752> **<@1089524144841949205>** — лучшие в своем деле.\n"
+                    f" <a:softheartbk:1122098922878410752> **<@1089523604565274746>** — знают что хорошо, а что плохо.\n"
+                    f" <a:softheartbk:1122098922878410752> **<@1260619724342038630>** — проводит активности.\n"
+                    f" <a:softheartbk:1122098922878410752> **<@1115956471730012190>** — визуальная составляющая сервера.\n"
+                    f" <a:softheartbk:1122098922878410752> **<@1089524284151570452>** — гид для новичков.\n"
+                    f" <a:softheartbk:1122098922878410752> **<@1089524364648644728>** — создатель мероприятий и их ведение.\n"
+                    f" <a:softheartbk:1122098922878410752> **<@1139600451617169550>** — знают какой контент вам нужен.\n"
+                    f" <a:softheartbk:1122098922878410752> **<@1089524436551610499>** — реклама сервера.\n"
+                    f" <a:softheartbk:1122098922878410752> **<@1260619897650544652>** — проводит трибунки.\n"
+                    f" <a:softheartbk:1122098922878410752> **<@1260618568060633108>** — прописуют команды поднятия сервера.\n"
+                    f" <a:softheartbk:1122098922878410752> **<@1139623051290488953>** — активно занимаются ведением Twitch.\n"
+                ),
+                color= 5814783
+                
             )
+            embed.set_image(url="https://cdn.discordapp.com/attachments/1258883465265287169/1271121980577550346/5fc54d4d39f9b585.png?ex=66b63018&is=66b4de98&hm=56a488424770dbf9f026107b47bb8f387ad75bed37b45a71fda44ad4c943bcae&")
 
             await channel.send(embed=embed, view=CustomButton())
 
+            
+    async def clear_channel(self, channel):
+        # Функция для очистки сообщений в канале, если необходимо
+        if channel:
+            await channel.purge(limit=100)
 def setup(bot):
     bot.add_cog(CustomButtons(bot))
