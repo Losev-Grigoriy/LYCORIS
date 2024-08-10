@@ -134,7 +134,7 @@ class Verif_f(commands.Cog):
             await ctx.send(embed=embed, ephemeral=True)
 
     @commands.Cog.listener()
-    async def on_member_join(member):
+    async def on_member_join(self, member):
         anverefi = disnake.utils.get(member.guild.roles, id=1260727937662193674)
         await member.add_roles(anverefi)
 

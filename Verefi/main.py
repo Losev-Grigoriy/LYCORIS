@@ -30,6 +30,10 @@ bot.load_extension("cogs.veref")
 bot.load_extension("cogs.staffveref")
 bot.load_extension("cogs.adminveref")
 bot.load_extension("cogs.staff")
+bot.load_extension("cogs.mute")
+bot.load_extension("cogs.ban")
+bot.load_extension("cogs.kik")
+bot.load_extension("cogs.warn")
 
 
 @bot.event
